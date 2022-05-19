@@ -1,0 +1,13 @@
+li.big {
+    line-height: 3;
+  }
+  label{
+    font-weight: bold;
+}
+h5{
+    font-weight: bold;
+}
+
+i{
+  vertical-align: middle;
+}

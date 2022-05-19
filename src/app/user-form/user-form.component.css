@@ -1,0 +1,9 @@
+label{
+    font-weight: bold;
+}
+h5{
+    font-weight: bold;
+}
+input[type=checkbox] {
+    width: 100px;
+}

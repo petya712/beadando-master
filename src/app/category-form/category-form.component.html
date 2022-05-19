@@ -1,0 +1,18 @@
+<div class="row">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="col-md-6">
+        <h5 style="font-size:24px;">Create video category:</h5>
+        <input class="form-control" onfocus="this.value=''" [(ngModel)]="newCategoryTitle">
+        <i class="fa fa-plus-circle" style="font-size:36px;color:green"></i>
+        <button class="btn btn-primary" (click)="createCategory()">Add category</button>
+    </div>
+    <div class="col-md-6">
+        <ul>
+            <li class="big" *ngFor="let category of categories">
+                {{ category.title }}
+                <button class="btn btn-sm btn-danger" (click)="deleteCategory(category.id)">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>

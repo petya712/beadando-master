@@ -1,0 +1,42 @@
+<div class="row">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="col-md-6">
+        <h5 style="font-size:24px;">New video for rent:</h5>
+        <form [formGroup]="videoForm">
+            <label for="type">Type of media:</label>
+            <select class="form-control" id="type" formControlName="type">
+                <option selected>Choose...</option>
+                <option value="cd">CD</option>
+                <option value="dvd">DvD</option>
+            </select>
+            <label for="author">Made by:</label>
+            <input type="text" class="form-control" id="author" formControlName="author">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+            <label for="date">Rented on Date:</label>
+            <input type="text" class="form-control" id="date" formControlName="date">
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" formControlName="status">
+                <option selected>Choose...</option>
+                <option value="available">available</option>
+                <option value="taken">taken</option>
+                <option value="rejected">rejected</option>
+            </select>
+            <label for="renter">Renting User:</label>
+            <select [compareWith]="compareUsers" class="form-control" id="renter" formControlName="renter">
+                <option selected value=null>None</option>
+                <option *ngFor="let user of users" [ngValue]="user">{{ user.firstName }} {{ user.lastName }}</option>
+            </select>
+            <label for="categories">Categories:</label>
+            <select [compareWith]="compareCategories" class="form-control" id="categories" formControlName="categories"
+                multiple>
+                <option *ngFor="let category of categories" [ngValue]="category">{{ category.title }}</option>
+            </select>
+            <span style="font-size: 2em;">
+            <button class="fa fa-floppy-o" [ngStyle]="{color : 'black'}" (click)="addVideo()" [disabled]="videoForm.invalid">
+                Save Video
+            </button>
+            </span>
+        </form>
+    </div>
+</div>

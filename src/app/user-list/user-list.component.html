@@ -1,0 +1,23 @@
+<div class="row mt-2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="col-md-7">
+        <input type="text" class="form-control" [(ngModel)]="searchFor" placeholder="Type a user name or ID ...">
+    </div>
+    <div class="col-md-2">
+        <i class="fa fa-search" style="font-size:24px;"></i>
+        <button class="btn btn-primary" (click)="searchUser()">Search</button>
+    </div>
+</div> 
+<div class="row">
+    <div class="col-md-8">
+        <i class="fa fa-user" style="font-size:24px;"></i>
+        <h5 style="font-size:24px;">Users:</h5>
+        <br>
+        <div class="row">
+            <div class="col-md-6" *ngFor="let user of users">
+                <app-user-item [user]="user"></app-user-item>
+            </div>
+        </div>
+    </div>
+    
+</div>
