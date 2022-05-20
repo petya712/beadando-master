@@ -16,8 +16,12 @@ export class RentFormComponent implements OnInit {
 
   constructor(private videoService: VideoService) { }
 
-  async ngOnInit() {
-    this.videos = await this.videoService.loadVideos();
+  //async ngOnInit() {
+    //this.videos = await this.videoService.loadVideos();
+  //}
+
+  ngOnInit() {
+    this.videoService.loadVideos().subscribe((videos)=>this.videos = videos);
   }
 
   todate=formatDate(new Date(), 'yyyy.MM.dd', 'en');

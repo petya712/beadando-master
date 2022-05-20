@@ -32,27 +32,45 @@ export class UserFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,) { }
 
-  async ngOnInit(): Promise<void> {
+  // async ngOnInit(): Promise<void> {
+  //   const id = this.activatedRoute.snapshot.queryParams.id;
+
+  //   if (id) {
+  //     const video = await this.userService.getUserById(id);
+  //     this.userForm.setValue(video);
+  //   }
+  // }
+
+  ngOnInit(): void {
+
     const id = this.activatedRoute.snapshot.queryParams.id;
 
-    if (id) {
-      const video = await this.userService.getUserById(id);
-      this.userForm.setValue(video);
-    }
+     if (id) {
+       const user =  this.userService.getUserById(id);
+       this.userForm.setValue(user);
+      }
+    
   }
 
-  async createUser() {
-    const user = this.userForm.value;
-    this.successMessage = '';
-    this.errorMessage = '';
-    this.router.navigateByUrl('/user-list');
+  // async createUser() {
+  //   const user = this.userForm.value;
+  //   this.successMessage = '';
+  //   this.errorMessage = '';
+  //   this.router.navigateByUrl('/user-list');
 
-    try {
-      const userAdded = await this.userService.createUser(user);
-      this.successMessage = 'User added with id ' + userAdded.id;
-    } catch (err) {
-      this.errorMessage = err.error.message;
-    }
+  //   try {
+  //     const userAdded = await this.userService.createUser(user);
+  //     this.successMessage = 'User added with id ' + userAdded.id;
+  //   } catch (err) {
+  //     this.errorMessage = err.error.message;
+  //   }
+  // }
+
+  createUser(){
+    const user = this.userForm.value;
+    this.userService.createUser(user).subscribe((user)=>{
+      this.router.navigateByUrl('/');
+    });
   }
 
 }

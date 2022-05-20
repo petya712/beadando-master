@@ -46,23 +46,45 @@ export class VideoFormComponent implements OnInit {
     return this.videoForm.get('id');
   }
 
-  async ngOnInit() {
-    this.users = await this.userService.getUsers();
-    this.categories = await this.categoryService.getAll();
+  // async ngOnInit() {
+  //   this.users = await this.userService.getUsers();
+  //   this.categories = await this.categoryService.getAll();
+
+  //   const id = this.activatedRoute.snapshot.queryParams.id;
+
+  //   if (id) {
+  //     const video = await this.videoService.getVideoById(id);
+  //     this.videoForm.setValue(video);
+  //   }
+  // }
+
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe((user)=>this.users = user);
+    this.categoryService.getAll().subscribe((category)=>this.categories = category);
 
     const id = this.activatedRoute.snapshot.queryParams.id;
 
-    if (id) {
-      const video = await this.videoService.getVideoById(id);
-      this.videoForm.setValue(video);
-    }
+     if (id) {
+       const video =  this.videoService.getVideoById(id);
+       this.videoForm.setValue(video);
+      }
+    
   }
 
-  addVideo() {
+  //addVideo() {
+    //const video = this.videoForm.value;
+    //this.videoService.addVideo(video);
+    //this.router.navigateByUrl('/');
+  //}
+  
+
+  addVideo(){
     const video = this.videoForm.value;
-    this.videoService.addVideo(video);
-    this.router.navigateByUrl('/');
+    this.videoService.addVideo(video).subscribe((video)=>{
+      this.router.navigateByUrl('/');
+    });
   }
+  
 
   compareUsers(user1: User, user2: User): boolean {
     return user1 && user2 && user1.id === user2.id;

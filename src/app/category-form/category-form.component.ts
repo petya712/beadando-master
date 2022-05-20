@@ -15,21 +15,27 @@ export class CategoryFormComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) { }
 
-  async ngOnInit() {
-    this.categories = await this.categoryService.getAll();
+  //async ngOnInit() {
+    //this.categories = await this.categoryService.getAll();
+  //}
+ngOnInit(): void {
+  this.categoryService.getAll().subscribe((category)=>this.categories = category);
+}
+
+
+   async createCategory() {
+     const newCategory = await this.categoryService.createCateg({
+       id: null,
+       title: this.newCategoryTitle
+     });
+     this.categories.push(newCategory);
   }
 
-  async createCategory() {
-    const newCategory = await this.categoryService.create({
-      id: null,
-      title: this.newCategoryTitle
-    });
-    this.categories.push(newCategory);
-  }
+  
 
   async deleteCategory(id: number) {
-    await this.categoryService.delete(id);
-    this.categories = await this.categoryService.getAll();
+    await this.categoryService.deleteCateg(id);
+    this.categoryService.getAll().subscribe((category)=>this.categories = category);
   }
 
 }

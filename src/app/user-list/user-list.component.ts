@@ -15,12 +15,15 @@ export class UserListComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  async ngOnInit() {
-    this.users = await this.userService.loadUsers();
+  //async ngOnInit() {
+    //this.users = await this.userService.loadUsers();
+  //}
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe((user)=>this.users = user);
   }
 
   async searchUser() {
-    this.users = await this.userService.sortUsers(this.searchFor);
+    this.users = await this.userService.searchForUsers(this.searchFor);
   }
 
 }

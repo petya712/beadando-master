@@ -15,12 +15,16 @@ export class VideoListComponent implements OnInit {
 
   constructor(private videoService: VideoService) { }
 
-  async ngOnInit() {
-    this.videos = await this.videoService.loadVideos();
+  //async ngOnInit() {
+    //this.videos = await this.videoService.loadVideos();
+  //}
+
+  ngOnInit() {
+    this.videoService.loadVideos().subscribe((videos)=>this.videos = videos);
   }
 
   async searchVideo() {
-    this.videos = await this.videoService.filterVideos(this.searchFor);
+    this.videos = await this.videoService.searchForVideos(this.searchFor);
   }
 
 }
