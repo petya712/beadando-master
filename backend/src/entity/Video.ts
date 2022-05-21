@@ -11,7 +11,7 @@ export class Video {
     type: string;
 
     @Column({ nullable: true, type: 'text' })
-    author: string;
+    director: string;
 
     @Column({ nullable: true, type: 'text' })
     title: string;

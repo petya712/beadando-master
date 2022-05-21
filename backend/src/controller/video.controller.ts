@@ -12,7 +12,7 @@ export class VideoController extends Controller {
             const entities = await this.repository
                 .createQueryBuilder('video')
                 .where("video.title LIKE CONCAT('%', :search, '%')", { search: search })
-                .orWhere("video.author LIKE CONCAT('%', :search, '%')", { search: search })
+                .orWhere("video.director LIKE CONCAT('%', :search, '%')", { search: search })
                 .leftJoinAndSelect('video.renter', 'renter')
                 .leftJoinAndSelect('video.categories', 'category')
                 .getMany();

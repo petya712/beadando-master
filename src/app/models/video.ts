@@ -4,7 +4,7 @@ import { User } from "./user";
 export interface Video {
     id: string;
     type: string;
-    author: string;
+    director: string;
     title: string;
     date: string;
     status: string;

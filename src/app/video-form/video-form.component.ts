@@ -22,7 +22,7 @@ export class VideoFormComponent implements OnInit {
   videoForm: FormGroup = this.formBuilder.group({
     id: [],
     type: [''],
-    author: [''],
+    director: [''],
     title: [''],
     date: [''],
     status: [''],
