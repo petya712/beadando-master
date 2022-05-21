@@ -1,19 +1,19 @@
 <div class="row mt-2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="col-md-7">
+    <div class="col-md-5">
         <input type="text" class="form-control" [(ngModel)]="searchFor" placeholder="Type a video's title ...">
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
         <i class="fa fa-search" style="font-size:24px;"></i>
-        <button class="btn btn-primary" (click)="searchVideo()">Search</button>
+        <button class="btn btn-info" (click)="searchVideo()">Search</button>
     </div>
 </div>
 <div class="row">
     <div class="col-md-8">
         <i class="fa fa-film" style="font-size:24px;"></i>
-        <h5 style="font-size:24px; font-style: normal;">Videos:</h5>
+        <h5 style="font-size:26px; font-style: normal;">Videos:</h5>
         <div class="row">
-            <div class="col-md-6" *ngFor="let video of videos">
+            <div class="col-md-5" *ngFor="let video of videos">
                 <app-video [video]="video"></app-video>
             </div>
         </div>

@@ -7,27 +7,26 @@
         <div class="alert alert-success" role="alert" *ngIf="successMessage">
             {{ successMessage }}
         </div>
-        <h5 style="font-size:24px;">User registration:</h5>
+        <h5 style="font-size:26px;font-style: normal;">User registration:</h5>
         <form [formGroup]="userForm">
-            <label for="firstName">First name:</label>
+            <p for="firstName">First name:</p>
             <input type="text" class="form-control" id="firstName" formControlName="firstName">
-            <label for="lastName">Last name:</label>
+            <p for="lastName">Last name:</p>
             <input type="text" class="form-control" id="lastName" formControlName="lastName">
-            <label for="personal_id">Personal ID:</label>
+            <p for="personal_id">Personal ID:</p>
             <input type="text" class="form-control" id="personal_id" formControlName="personal_id">
-            <label for="phone">Phone number:</label>
+            <p for="phone">Phone number:</p>
             <input type="text" class="form-control" id="phone" formControlName="phone">
-            <label for="address">Address:</label>
+            <p for="address">Address:</p>
             <input type="text" class="form-control" id="address" formControlName="address">
-            <label for="status">Status:</label>
+            <p for="status">Status:</p>
             <select class="form-control" id="status" formControlName="status">
-                <option selected>Choose...</option>
-                <option value="active">Active</option>
-                <option value="deleted">Deleted</option>
+                <option value="active">Active user</option>
+                <option value="deleted">Deleted user</option>
             </select>
-            <label for="allow">Allowed to rent: </label>
+            <p for="allow">Allowed to rent: </p>
             <input type="checkbox" class="form-control" id="allow" formControlName="allow" checked>
-            <p> </p>
+            <br>
 
             <span style="font-size: 2em;">
             <button class="fa fa-floppy-o" (click)="createUser()">
