@@ -1,38 +1,37 @@
 <div class="row">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="col-md-5">
-        <h5 style="font-size:26px;font-style: normal;">New video for rent:</h5>
+        <h5 style="font-size:26px;font-style: normal;">Új video regisztrálás kölcsönzésre:</h5>
         <form [formGroup]="videoForm">
-            <p for="type">Type of media:</p>
+            <p for="type">Típus:</p>
             <select class="form-control" id="type" formControlName="type">
                 <option value="cd">CD</option>
                 <option value="dvd">DvD</option>
             </select>
-            <p for="director">Director:</p>
+            <p for="director">Rendező:</p>
             <input type="text" class="form-control" id="director" formControlName="director">
-            <p for="title">Title:</p>
+            <p for="title">Cím:</p>
             <input type="text" class="form-control" id="title" formControlName="title">
-            <p for="date">Rented on Date:</p>
+            <p for="date">Kölcsönzés ideje:</p>
             <input type="text" class="form-control" id="date" formControlName="date">
-            <p for="status">Status:</p>
+            <p for="status">Státusz:</p>
             <select class="form-control" id="status" formControlName="status">
-                <option value="available">available</option>
-                <option value="taken">taken</option>
-                <option value="rejected">rejected</option>
+                <option value="elérhető">elérhető</option>
+                <option value="foglalt">foglalt</option>
             </select>
-            <p for="renter">Renting User:</p>
+            <p for="renter">Kölcsönző:</p>
             <select [compareWith]="compareUsers" class="form-control" id="renter" formControlName="renter">
-                <option selected value=null>None</option>
+                <option selected value=null>Nincs</option>
                 <option *ngFor="let user of users" [ngValue]="user">{{ user.firstName }} {{ user.lastName }}</option>
             </select>
-            <p for="categories">Categories:</p>
+            <p for="categories">Kategóriák:</p>
             <select [compareWith]="compareCategories" class="form-control" id="categories" formControlName="categories"
                 multiple>
                 <option *ngFor="let category of categories" [ngValue]="category">{{ category.title }}</option>
             </select>
             <span style="font-size: 2em;">
             <button class="fa fa-floppy-o" [ngStyle]="{color : 'black'}" (click)="addVideo()" [disabled]="videoForm.invalid">
-                Save Video
+                Mentés
             </button>
             </span>
         </form>

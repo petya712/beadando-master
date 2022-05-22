@@ -7,30 +7,30 @@
         <div class="alert alert-success" role="alert" *ngIf="successMessage">
             {{ successMessage }}
         </div>
-        <h5 style="font-size:26px;font-style: normal;">User registration:</h5>
+        <h5 style="font-size:26px;font-style: normal;">Felhasználó regisztáció:</h5>
         <form [formGroup]="userForm">
-            <p for="firstName">First name:</p>
+            <p for="firstName">Vezeték neve:</p>
             <input type="text" class="form-control" id="firstName" formControlName="firstName">
-            <p for="lastName">Last name:</p>
+            <p for="lastName">Kereszt neve:</p>
             <input type="text" class="form-control" id="lastName" formControlName="lastName">
-            <p for="personal_id">Personal ID:</p>
+            <p for="personal_id">Szem. ig. szám:</p>
             <input type="text" class="form-control" id="personal_id" formControlName="personal_id">
-            <p for="phone">Phone number:</p>
+            <p for="phone">Tel.:</p>
             <input type="text" class="form-control" id="phone" formControlName="phone">
-            <p for="address">Address:</p>
+            <p for="address">Cím:</p>
             <input type="text" class="form-control" id="address" formControlName="address">
-            <p for="status">Status:</p>
+            <p for="status">Felhasználói státusz:</p>
             <select class="form-control" id="status" formControlName="status">
-                <option value="active">Active user</option>
-                <option value="deleted">Deleted user</option>
+                <option value="aktív">Aktív</option>
+                <option value="törölt">Törölt</option>
             </select>
-            <p for="allow">Allowed to rent: </p>
+            <p for="allow">Bérelhet: </p>
             <input type="checkbox" class="form-control" id="allow" formControlName="allow" checked>
             <br>
 
             <span style="font-size: 2em;">
             <button class="fa fa-floppy-o" (click)="createUser()">
-                Save User
+                Mentés
             </button>
             </span>
         </form>

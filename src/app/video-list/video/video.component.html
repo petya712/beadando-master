@@ -4,20 +4,20 @@
             <b>{{ video.id }}.</b>
             {{ video.title }}
             <p><b>by {{ video.director }}</b></p>
-            <p class="small">Type: {{ video.type }}</p>
+            <p class="small">Típus: {{ video.type }}</p>
             
         </h5>
         <p>
-            <span class="badge badge-secondary" *ngFor="let category of video.categories">{{ category.title }}</span>
+            <span class="badge badge-dark" *ngFor="let category of video.categories">{{ category.title }}</span>
         </p>
 
-        <b class="bold">Availability: </b>
+        <b class="bold">Elérhetőség: </b>
         <b class="bold" *ngIf="video.renter">{{ video.status }}</b>
-        <b class="bold" *ngIf="!video.renter">available</b>
-        <p class="bold" *ngIf="video.renter">Renting user: {{ video.renter.firstName }} {{ video.renter.lastName }}</p>
-        <p class="bold" *ngIf="video.renter">Renting date: {{ video.date }} </p>
+        <b class="bold" *ngIf="!video.renter">elérhető</b>
+        <p class="bold" *ngIf="video.renter">Kölcsönző: {{ video.renter.firstName }} {{ video.renter.lastName }}</p>
+        <p class="bold" *ngIf="video.renter">Kölcsönzés dátuma: {{ video.date }} </p>
         <p></p>
-        <button class="btn btn-sm btn-success" (click)="navigateToVideoForm(video.id)">Edit</button>
+        <button class="btn btn-sm btn-primary" (click)="navigateToVideoForm(video.id)">Módosít</button>
         <hr>
     </div>
 </div>

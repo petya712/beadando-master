@@ -2,16 +2,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="col-md-5">
-        <h5 style="font-size:26px;font-style: normal;">Create video category:</h5>
+        <h5 style="font-size:26px;font-style: normal;">Új video kategória készítés:</h5>
         <input class="form-control" onfocus="this.value=''" [(ngModel)]="newCategoryTitle">
         <i class="fa fa-plus-circle" style="font-size:36px;color:green"></i>
-        <button class="btn btn-info" (click)="createCategory()">Add category</button>
+        <button class="btn btn-info" (click)="createCategory()">Hozzáad</button>
     </div>
     <div class="col-md-5">
         <ul>
             <div class="row mt-4"  *ngFor="let category of categories">
                 {{ category.title }}
-                <button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteCategory(category.id)">Törlés</button>
             </div>
         </ul>
     </div>

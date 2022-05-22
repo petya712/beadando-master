@@ -3,11 +3,15 @@
         <h5>
             {{ user.id }}.
             <b> {{ user.firstName }} {{ user.lastName }}</b>
-            <p>Personal ID: {{ user.personal_id }} </p>
+            <br>
+            <label>Személyi ig. szám: {{ user.personal_id }} </label>
         </h5>
-        <p>Tel: {{ user.phone }}</p>
-        <p>Address: {{ user.address }}</p>
-        <p>Status: {{ user.status }}</p>
-        <button class="btn btn-sm btn-success" (click)="navigateToUserForm(user.id)">Edit</button>
+        <label>Tel: {{ user.phone }}</label>
+        <br>
+        <label>Cím: {{ user.address }}</label>
+        <br>
+        <label>Státusz: {{ user.status }}</label>
+        <br>
+        <button class="btn btn-sm btn-primary" (click)="navigateToUserForm(user.id)">Módosít</button>
     </div>
 </div>
